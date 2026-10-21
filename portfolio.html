@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Efstathios Chatzoglou – Computational Fluid Dynamics &amp; SPH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f1f6f5;--ink:#12303a;--mute:#4d6a72;--acc:#0b7285;--line:#c5d6d8;--card:#e4eeee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1d24;--ink:#e4eff0;--mute:#9bb5bb;--acc:#5cc4d2;--line:#25414b;--card:#142a33}}
+:root[data-theme="dark"]{--bg:#0e1d24;--ink:#e4eff0;--mute:#9bb5bb;--acc:#5cc4d2;--line:#25414b;--card:#142a33}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--acc);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding:64px 0 0}
+h1{font:700 clamp(2.1rem,5.6vw,3.6rem)/1.08 Spectral,Georgia,serif;margin:0 0 14px;max-width:16em;letter-spacing:-.01em}
+.who{font-weight:600;margin:0}.role{color:var(--mute);margin:2px 0 20px}
+.links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 8px;padding:0;list-style:none}
+svg.field{display:block;width:100%;height:150px;margin-top:10px}
+section{display:grid;grid-template-columns:200px 1fr;gap:10px 40px;padding:44px 0;border-bottom:1px solid var(--line)}
+h2{font:600 1.35rem/1.25 Spectral,Georgia,serif;margin:0}
+section>div>*:first-child{margin-top:0}
+h3{font:600 1.05rem/1.4 "Public Sans",sans-serif;margin:0 0 2px}
+p{margin:0 0 12px}.mute{color:var(--mute)}
+.item{margin-bottom:22px}
+.pub{display:grid;grid-template-columns:52px 1fr;gap:12px;margin-bottom:16px}
+.yr{font-weight:600;color:var(--acc)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.tags li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:3px 10px;font-size:.92rem}
+dl{margin:0}dt{font-weight:600;margin-top:12px}dd{margin:0;color:var(--mute)}
+footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
+@media (max-width:700px){section{grid-template-columns:1fr;padding:34px 0}header.hero{padding-top:44px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<h1>Simulating turbulent free-surface flows with particles</h1>
+<p class="who">Efstathios Chatzoglou, PhD</p>
+<p class="role">Civil engineer and computational fluid dynamics researcher · University of Thessaly, Greece</p>
+<ul class="links">
+<li><a href="mailto:efchatzoglou@uth.gr">efchatzoglou@uth.gr</a></li>
+<li><a href="https://linkedin.com/in/efstathioschatzoglou">LinkedIn</a></li>
+</ul>
+</div>
+<svg class="field" id="field" viewBox="0 0 980 150" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Particles forming a free-surface wave"></svg>
+</header>
+
+<main class="wrap">
+<section id="about"><h2>About</h2><div>
+<p>I develop and validate Smoothed Particle Hydrodynamics (SPH) models for turbulent, free-surface and hydraulic flows. My PhD (University of Thessaly, 2025, with honours) centred on turbulence modelling in DualSPHysics, where I implemented the Dynamic Smagorinsky model and linked SPH filtering with Large Eddy Simulation.</p>
+<p>I work in C++, Python and MATLAB on GPU and HPC platforms, and validate against analytical solutions, experiments and hydraulic engineering benchmarks. I am also the elected Early Career Researchers Representative on the SPHERIC Steering Committee.</p>
+</div></section>
+
+<section id="research"><h2>Research</h2><div>
+<div class="item"><h3>Turbulence modelling in SPH</h3>
+<p class="mute">A Dynamic Smagorinsky formulation computes the model constant from the resolved flow, removing the need for case-by-case tuning. Implemented and tested in DualSPHysics.</p></div>
+<div class="item"><h3>Hydraulic structures</h3>
+<p class="mute">3D simulation of flow through sluice gates and over weirs, comparing turbulence models and boundary conditions, and reproducing hydraulic jumps against experimental data.</p></div>
+<div class="item"><h3>Confined microflows</h3>
+<p class="mute">SPH simulations of 3D channels with abrupt expansion and contraction, assessed against analytical solutions.</p></div>
+<div class="item"><h3>Vegetated and open-channel flows</h3>
+<p class="mute">Open-channel flow over vegetated beds, with a manuscript currently under review.</p></div>
+<div class="item"><h3>Data-driven flow analysis</h3>
+<p class="mute">Convolutional neural networks that reconstruct dense open-channel flow fields from sparse data.</p></div>
+</div></section>
+
+<section id="publications"><h2>Publications</h2><div>
+<div class="pub"><span class="yr">2025</span><span>Chatzoglou, Sofiadis &amp; Liakopoulos. Enhancing smoothed particle hydrodynamics for turbulent flow simulation: implementation of the dynamic Smagorinsky model. <i>Engineering Applications of Computational Fluid Mechanics</i>, 19(1). <a href="https://doi.org/10.1080/19942060.2025.2591376">DOI</a></span></div>
+<div class="pub"><span class="yr">2025</span><span>Chatzoglou &amp; Liakopoulos. Turbulent flow through sluice gate and weir using smoothed particle hydrodynamics: evaluation of turbulence models, boundary conditions, and 3D effects. <i>Water</i>, 17(2), 152. <a href="https://doi.org/10.3390/w17020152">DOI</a></span></div>
+<div class="pub"><span class="yr">2024</span><span>Sofos, Sofiadis, Chatzoglou, Palasis, Karakasidis &amp; Liakopoulos. From sparse to dense representations in open channel flow images with convolutional neural networks. <i>Inventions</i>, 9(2), 27. <a href="https://doi.org/10.3390/inventions9020027">DOI</a></span></div>
+<div class="pub"><span class="yr">2023</span><span>Chatzoglou, Liakopoulos &amp; Sofos. Smoothed particle hydrodynamics-based study of 3D confined microflows. <i>Fluids</i>, 8(5), 137. <a href="https://doi.org/10.3390/fluids8050137">DOI</a></span></div>
+<div class="pub"><span class="yr">2021</span><span>Sofos, Chatzoglou &amp; Liakopoulos. An assessment of SPH simulations of sudden expansion/contraction 3-D channel flows. <i>Computational Particle Mechanics</i>. <a href="https://doi.org/10.1007/s40571-021-00396-z">DOI</a></span></div>
+<p class="mute">Under review: Modeling turbulent flow in vegetated open channels using smoothed particle hydrodynamics.</p>
+</div></section>
+
+<section id="talks"><h2>Conferences</h2><div>
+<dl>
+<dt>2025 · 19th SPHERIC World Conference, Barcelona</dt><dd>SPH simulation of 3D open channel flow over vegetated bed</dd>
+<dt>2023 · 17th SPHERIC International Workshop, Rhodes</dt><dd>Flow regimes in sluice gate–weir system: 3D SPH-based model validations</dd>
+<dt>2022 · 39th IAHR World Congress, Granada</dt><dd>Hydraulic jump simulation via SPH: a critical review</dd>
+<dt>2022 · Protection and Restoration of the Environment XVI, Kalamata</dt><dd>Simulation of open channel flow control by SPH</dd>
+<dt>2021 · VII International Conference on Particle-Based Methods, Hamburg</dt><dd>SPH-based study of confined microflows with abrupt changes in cross-section</dd>
+</dl></div></section>
+
+<section id="skills"><h2>Skills</h2><div>
+<p class="mute">Numerical methods</p>
+<ul class="tags"><li>SPH</li><li>DualSPHysics</li><li>Turbulence and LES</li><li>Free-surface flows</li><li>Model validation</li></ul>
+<p class="mute" style="margin-top:16px">Programming and computing</p>
+<ul class="tags"><li>C++</li><li>Python</li><li>MATLAB</li><li>GPU-based CFD</li><li>HPC and clusters</li><li>Scientific post-processing</li></ul>
+<p class="mute" style="margin-top:16px">Hydraulic engineering</p>
+<ul class="tags"><li>HEC-RAS</li><li>HEC-HMS</li><li>Flood modelling</li><li>QGIS</li><li>AutoCAD</li></ul>
+</div></section>
+
+<section id="background"><h2>Background</h2><div>
+<div class="item"><h3>Researcher, H.F.R.I. MOVEFREE project</h3><p class="mute">University of Thessaly · 2022–2025</p></div>
+<div class="item"><h3>PhD in Computational Fluid Dynamics, with honours</h3><p class="mute">University of Thessaly · 2020–2025. Thesis: Smoothed Particle Hydrodynamics for Free-Surface Flows</p></div>
+<div class="item"><h3>Integrated Master in Civil Engineering, first class honours</h3><p class="mute">University of Thessaly · 2014–2019 · Erasmus+ at the University of Strathclyde</p></div>
+<div class="item"><h3>Community</h3><p class="mute">Early Career Researchers Representative, SPHERIC Steering Committee (2025–present). Member of IAHR and the Technical Chamber of Greece.</p></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Efstathios Chatzoglou · <a href="mailto:efchatzoglou@uth.gr">efchatzoglou@uth.gr</a></div></footer>
+
+<script>
+(function(){
+var s=document.getElementById('field'),ns='http://www.w3.org/2000/svg',h='';
+var rows=6,cols=98,i,j;
+for(j=0;j<rows;j++){for(i=0;i<cols;i++){
+var x=i*10+5,y0=Math.sin(i*.16)*14+Math.sin(i*.07+1)*9+48;
+var y=y0+j*10,o=(1-j/rows)*.9+.1;
+h+='<circle cx="'+x+'" cy="'+y.toFixed(1)+'" r="'+(j===0?3.4:2.8).toFixed(1)+'" fill="var(--acc)" opacity="'+o.toFixed(2)+'"/>';}}
+s.innerHTML=h;
+})();
+</script>
+</body>
+</html>
