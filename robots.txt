@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://efstathios96979.github.io/EfstathiosChatzoglou/sitemap.xml

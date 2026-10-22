@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Efstathios Chatzoglou, PhD – Computational Fluid Dynamics &amp; Smoothed Particle Hydrodynamics</title>
-<meta name="description" content="Efstathios Chatzoglou, PhD – civil engineer and CFD researcher specialising in Smoothed Particle Hydrodynamics (SPH), turbulence modelling and hydraulic flows. Publications, research and contact.">
+<meta name="description" content="Efstathios Chatzoglou (Ευστάθιος Χατζόγλου), PhD – civil engineer and CFD researcher specialising in Smoothed Particle Hydrodynamics (SPH), turbulence modelling and hydraulic flows. Publications, research and contact.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Efstathios Chatzoglou, PhD – CFD &amp; SPH researcher">
 <meta property="og:description" content="Turbulence modelling in Smoothed Particle Hydrodynamics for free-surface and hydraulic flows.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Efstathios Chatzoglou","honorificSuffix":"PhD","jobTitle":"Computational Fluid Dynamics Researcher","alumniOf":"University of Thessaly","email":"efchatzoglou@uth.gr","sameAs":["https://linkedin.com/in/efstathioschatzoglou"],"knowsAbout":["Smoothed Particle Hydrodynamics","Computational Fluid Dynamics","Turbulence modelling","Large Eddy Simulation","Hydraulic engineering"]}
+{"@context":"https://schema.org","@type":"Person","name":"Efstathios Chatzoglou","alternateName":["Ευστάθιος Χατζόγλου","E. Chatzoglou"],"honorificSuffix":"PhD","jobTitle":"Computational Fluid Dynamics Researcher","alumniOf":"University of Thessaly","email":"efchatzoglou@uth.gr","sameAs":["https://linkedin.com/in/efstathioschatzoglou"],"knowsAbout":["Smoothed Particle Hydrodynamics","Computational Fluid Dynamics","Turbulence modelling","Large Eddy Simulation","Hydraulic engineering"]}
 </script>
 <style>
 :root{--bg:#f1f6f5;--ink:#12303a;--mute:#4d6a72;--acc:#0b7285;--line:#c5d6d8;--card:#e4eeee;
@@ -40,7 +40,7 @@ h1{font:700 clamp(2rem,5vw,3.2rem)/1.1 Spectral,Georgia,serif;margin:0 0 14px;le
 figure.portrait{margin:0;width:230px;height:290px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
 .portrait img{width:100%;height:100%;object-fit:cover;display:block}
 [hidden]{display:none!important}
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
 figure.shot{margin:0}
 figure.shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px;border:1px solid var(--line);background:var(--card)}
 figure.shot figcaption{font-size:.9rem;color:var(--mute);margin-top:6px}
@@ -64,6 +64,16 @@ dl{margin:0}dt{font-weight:600;margin-top:12px}dd{margin:0;color:var(--mute)}
 footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
 @media (max-width:760px){.top{grid-template-columns:1fr}figure.portrait{order:-1;width:170px;height:210px}.facts{grid-template-columns:1fr 1fr}section{grid-template-columns:1fr;padding:34px 0}header.hero{padding-top:34px}nav b{width:100%}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.btns a{transition:transform .2s ease,box-shadow .2s ease}
+.btns a:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.18)}
+figure.shot{transition:transform .3s ease}
+figure.shot:hover{transform:translateY(-4px)}
+.tags li{transition:border-color .2s ease,transform .2s ease}
+.tags li:hover{border-color:var(--acc);transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.btns a,figure.shot,.tags li{transition:none}}
+figure.shot video{width:100%;aspect-ratio:16/9;object-fit:contain;display:block;border-radius:10px;border:1px solid var(--line);background:#000}
 </style>
 </head>
 <body>
@@ -104,11 +114,7 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
 <div class="item"><h3>Data-driven flow analysis</h3><p class="mute">Convolutional neural networks that reconstruct dense open-channel flow fields from sparse data.</p></div>
 </div></section>
 
-<section id="gallery" hidden><h2>Simulations</h2><div><div class="gal">
-<figure class="shot"><img src="sim1.jpg" alt="Hydraulic jump simulated with SPH" onload="document.getElementById('gallery').hidden=false" onerror="this.parentNode.remove()"><figcaption>Hydraulic jump</figcaption></figure>
-<figure class="shot"><img src="sim2.jpg" alt="Flow through a sluice gate and over a weir" onload="document.getElementById('gallery').hidden=false" onerror="this.parentNode.remove()"><figcaption>Flow through a sluice gate and over a weir</figcaption></figure>
-<figure class="shot"><img src="sim3.jpg" alt="Open-channel flow over a vegetated bed" onload="document.getElementById('gallery').hidden=false" onerror="this.parentNode.remove()"><figcaption>Open-channel flow over a vegetated bed</figcaption></figure>
-</div></div></section>
+<section id="gallery" hidden><h2>Simulations</h2><div><div class="gal" id="gal"></div></div></section>
 
 <section id="publications"><h2>Publications</h2><div>
 <div class="pub"><span class="yr">2025</span><span>Chatzoglou, Sofiadis &amp; Liakopoulos. Enhancing smoothed particle hydrodynamics for turbulent flow simulation: implementation of the dynamic Smagorinsky model. <i>Engineering Applications of Computational Fluid Mechanics</i>, 19(1). <a href="https://doi.org/10.1080/19942060.2025.2591376">DOI</a></span></div>
@@ -150,19 +156,51 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
 </div></section>
 </main>
 
-<footer><div class="wrap">© 2026 Efstathios Chatzoglou</div></footer>
+<footer><div class="wrap">© 2026 Efstathios Chatzoglou (Ευστάθιος Χατζόγλου)</div></footer>
 
 <script>
 (function(){
-var s=document.getElementById('field'),ns='http://www.w3.org/2000/svg',rows=5,cols=98,c=[],i,j,el;
+var hero=document.querySelector('header.hero'),s=document.getElementById('field'),ns='http://www.w3.org/2000/svg',rows=5,cols=98,c=[],i,j,el,mx=-999,my=-999;
+var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 for(j=0;j<rows;j++)for(i=0;i<cols;i++){
 el=document.createElementNS(ns,'circle');el.setAttribute('cx',i*10+5);el.setAttribute('r',j===0?3.4:2.8);
-el.setAttribute('fill','var(--acc)');el.setAttribute('opacity',((1-j/rows)*.9+.1).toFixed(2));s.appendChild(el);c.push([el,i,j]);}
-function draw(t){for(var k=0;k<c.length;k++){var a=c[k][1],b=c[k][2];
-c[k][0].setAttribute('cy',(Math.sin(a*.16-t*1.3)*12+Math.sin(a*.07+1-t*.7)*8+36+b*10).toFixed(1));}}
+el.setAttribute('fill','var(--acc)');el.setAttribute('opacity',((1-j/rows)*.9+.1).toFixed(2));s.appendChild(el);c.push([el,i*10+5,j]);}
+function draw(t){for(var k=0;k<c.length;k++){var x=c[k][1],b=c[k][2],a=x/10;
+var y=Math.sin(a*.16-t*1.3)*12+Math.sin(a*.07+1-t*.7)*8+36+b*10;
+var dx=x-mx,dy=y-my,d=Math.sqrt(dx*dx+dy*dy);
+if(d<90){y+=(dy/(d||1))*Math.pow(1-d/90,2)*26;}
+c[k][0].setAttribute('cy',y.toFixed(1));}}
 draw(0);
-if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-(function loop(ms){draw(ms/1000);requestAnimationFrame(loop);})(0);}
+if(!calm){
+hero.addEventListener('pointermove',function(e){var r=s.getBoundingClientRect(),sc=Math.max(r.width/980,r.height/120);
+mx=(e.clientX-r.left-(r.width-980*sc)/2)/sc;my=(e.clientY-r.top-(r.height-120*sc))/sc;});
+hero.addEventListener('pointerleave',function(){mx=my=-999;});
+(function loop(ms){draw(ms/1000);requestAnimationFrame(loop);})(0);
+var els=document.querySelectorAll('main section,.facts');
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.1});
+els.forEach(function(n){n.classList.add('rv');io.observe(n);});}
+}
+})();
+</script>
+<script>
+/* Edit the titles below. Upload sim1.mp4 (or sim1.jpg) etc. to the same folder as index.html. */
+(function(){
+var SIMS=[{f:'sim1',t:'Hydraulic jump'},{f:'sim2',t:'Flow through a sluice gate and over a weir'},{f:'sim3',t:'Open-channel flow over a vegetated bed'},{f:'sim4',t:''},{f:'sim5',t:''},{f:'sim6',t:''}];
+var box=document.getElementById('gal'),sec=document.getElementById('gallery');
+var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var io='IntersectionObserver' in window?new IntersectionObserver(function(en){en.forEach(function(x){
+if(calm)return;if(x.isIntersecting){x.target.play().catch(function(){});}else{x.target.pause();}});},{threshold:.25}):null;
+SIMS.forEach(function(m){
+var fig=document.createElement('figure');fig.className='shot';fig.hidden=true;box.appendChild(fig);
+function done(el){fig.appendChild(el);if(m.t){var c=document.createElement('figcaption');c.textContent=m.t;fig.appendChild(c);}fig.hidden=false;sec.hidden=false;}
+var v=document.createElement('video');
+v.muted=true;v.loop=true;v.autoplay=!calm;v.controls=true;v.playsInline=true;v.preload='metadata';
+v.setAttribute('muted','');v.setAttribute('playsinline','');
+v.onloadeddata=function(){done(v);if(io)io.observe(v);if(!calm)v.play().catch(function(){});};
+v.onerror=function(){var im=new Image();im.alt=m.t||'Simulation';im.onload=function(){done(im);};im.onerror=function(){fig.remove();};im.src=m.f+'.jpg';};
+v.src=m.f+'.mp4';
+});
 })();
 </script>
 </body>
