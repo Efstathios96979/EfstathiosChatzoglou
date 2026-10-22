@@ -37,8 +37,13 @@ h1{font:700 clamp(2rem,5vw,3.2rem)/1.1 Spectral,Georgia,serif;margin:0 0 14px;le
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
 .btns a{display:inline-block;padding:8px 16px;border:1px solid var(--acc);border-radius:6px;text-decoration:none;font-weight:600}
 .btns a.p{background:var(--acc);color:var(--bg)}
-figure{margin:0;width:230px;height:290px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
-figure img{width:100%;height:100%;object-fit:cover;display:block}
+figure.portrait{margin:0;width:230px;height:290px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+[hidden]{display:none!important}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+figure.shot{margin:0}
+figure.shot img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+figure.shot figcaption{font-size:.9rem;color:var(--mute);margin-top:6px}
 .ini{display:none;width:100%;height:100%;align-items:center;justify-content:center;font:700 3.4rem Spectral,Georgia,serif;color:var(--acc)}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:38px 0 0;border-top:1px solid var(--line)}
 .facts div{padding:16px 14px 16px 0}
@@ -57,7 +62,7 @@ p{margin:0 0 12px}.mute{color:var(--mute)}
 .tags li{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:3px 10px;font-size:.92rem}
 dl{margin:0}dt{font-weight:600;margin-top:12px}dd{margin:0;color:var(--mute)}
 footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
-@media (max-width:760px){.top{grid-template-columns:1fr}figure{order:-1;width:170px;height:210px}.facts{grid-template-columns:1fr 1fr}section{grid-template-columns:1fr;padding:34px 0}header.hero{padding-top:34px}nav b{width:100%}}
+@media (max-width:760px){.top{grid-template-columns:1fr}figure.portrait{order:-1;width:170px;height:210px}.facts{grid-template-columns:1fr 1fr}section{grid-template-columns:1fr;padding:34px 0}header.hero{padding-top:34px}nav b{width:100%}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -73,7 +78,7 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
 <p class="open">Open to postdoctoral and industry roles in CFD, simulation and scientific computing. Available for relocation.</p>
 <ul class="btns"><li><a class="p" href="mailto:efchatzoglou@uth.gr">Get in touch</a></li><li><a href="https://linkedin.com/in/efstathioschatzoglou">LinkedIn</a></li><li><a href="#publications">Publications</a></li></ul>
 </div>
-<figure><img src="photo.jpg" alt="Portrait of Efstathios Chatzoglou" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ini" aria-hidden="true">EC</div></figure>
+<figure class="portrait"><img src="photo.jpg" alt="Portrait of Efstathios Chatzoglou" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ini" aria-hidden="true">EC</div></figure>
 </div>
 <div class="facts">
 <div><b>PhD 2025</b><span>Computational Fluid Dynamics, with honours</span></div>
@@ -98,6 +103,12 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
 <div class="item"><h3>Vegetated and open-channel flows</h3><p class="mute">Open-channel flow over vegetated beds. A manuscript is under review.</p></div>
 <div class="item"><h3>Data-driven flow analysis</h3><p class="mute">Convolutional neural networks that reconstruct dense open-channel flow fields from sparse data.</p></div>
 </div></section>
+
+<section id="gallery" hidden><h2>Simulations</h2><div><div class="gal">
+<figure class="shot"><img src="sim1.jpg" alt="Hydraulic jump simulated with SPH" onload="document.getElementById('gallery').hidden=false" onerror="this.parentNode.remove()"><figcaption>Hydraulic jump</figcaption></figure>
+<figure class="shot"><img src="sim2.jpg" alt="Flow through a sluice gate and over a weir" onload="document.getElementById('gallery').hidden=false" onerror="this.parentNode.remove()"><figcaption>Flow through a sluice gate and over a weir</figcaption></figure>
+<figure class="shot"><img src="sim3.jpg" alt="Open-channel flow over a vegetated bed" onload="document.getElementById('gallery').hidden=false" onerror="this.parentNode.remove()"><figcaption>Open-channel flow over a vegetated bed</figcaption></figure>
+</div></div></section>
 
 <section id="publications"><h2>Publications</h2><div>
 <div class="pub"><span class="yr">2025</span><span>Chatzoglou, Sofiadis &amp; Liakopoulos. Enhancing smoothed particle hydrodynamics for turbulent flow simulation: implementation of the dynamic Smagorinsky model. <i>Engineering Applications of Computational Fluid Mechanics</i>, 19(1). <a href="https://doi.org/10.1080/19942060.2025.2591376">DOI</a></span></div>
@@ -143,13 +154,16 @@ footer{padding:30px 0 40px;color:var(--mute);font-size:.9rem}
 
 <script>
 (function(){
-var s=document.getElementById('field'),h='',rows=5,cols=98,i,j;
-for(j=0;j<rows;j++){for(i=0;i<cols;i++){
-var y=Math.sin(i*.16)*12+Math.sin(i*.07+1)*8+36+j*10,o=(1-j/rows)*.9+.1;
-h+='<circle cx="'+(i*10+5)+'" cy="'+y.toFixed(1)+'" r="'+(j===0?3.4:2.8)+'" fill="var(--acc)" opacity="'+o.toFixed(2)+'"/>';}}
-s.innerHTML=h;
+var s=document.getElementById('field'),ns='http://www.w3.org/2000/svg',rows=5,cols=98,c=[],i,j,el;
+for(j=0;j<rows;j++)for(i=0;i<cols;i++){
+el=document.createElementNS(ns,'circle');el.setAttribute('cx',i*10+5);el.setAttribute('r',j===0?3.4:2.8);
+el.setAttribute('fill','var(--acc)');el.setAttribute('opacity',((1-j/rows)*.9+.1).toFixed(2));s.appendChild(el);c.push([el,i,j]);}
+function draw(t){for(var k=0;k<c.length;k++){var a=c[k][1],b=c[k][2];
+c[k][0].setAttribute('cy',(Math.sin(a*.16-t*1.3)*12+Math.sin(a*.07+1-t*.7)*8+36+b*10).toFixed(1));}}
+draw(0);
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+(function loop(ms){draw(ms/1000);requestAnimationFrame(loop);})(0);}
 })();
 </script>
 </body>
 </html>
-
